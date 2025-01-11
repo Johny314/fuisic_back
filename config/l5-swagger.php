@@ -38,7 +38,7 @@ return [
         'paths' => [
             'docs' => storage_path('api-docs'),
             'views' => base_path('resources/views/vendor/l5-swagger'),
-            'base' => env('L5_SWAGGER_BASE_PATH', null),
+            'base' => env('L5_SWAGGER_BASE_PATH'),
             'swagger_ui_assets_path' => env('L5_SWAGGER_UI_ASSETS_PATH', 'vendor/swagger-api/swagger-ui/dist/'),
             'excludes' => [],
         ],
@@ -96,7 +96,7 @@ return [
         'proxy' => false,
 
         'additional_config_url' => null,
-        'operations_sort' => env('L5_SWAGGER_OPERATIONS_SORT', null),
+        'operations_sort' => env('L5_SWAGGER_OPERATIONS_SORT'),
         'validator_url' => null,
         'ui' => [
             'display' => [
@@ -120,7 +120,7 @@ return [
             ],
         ],
         'constants' => [
-            'L5_SWAGGER_CONST_HOST' => env('L5_SWAGGER_CONST_HOST', 'http://my-default-host.com'),
+            'L5_SWAGGER_CONST_HOST' => env('L5_SWAGGER_CONST_HOST', 'https://my-default-host.com'),
         ],
     ],
 ];

@@ -21,7 +21,7 @@ yarn-error.log
 /.nova
 /.vscode
 /.zed
-/storage/api-docs/api-docs.json
+/storage/api-docs
 
 # Project exclude paths
 /storage/app/
