@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\OpenApi\Tag;
+use App\OpenApi\TagAttr;
 use OpenApi\Attributes as OA;
 #[OA\Info(
     version: '0.1',
@@ -16,6 +18,11 @@ use OpenApi\Attributes as OA;
     in: 'header',
     scheme: 'bearer',
 )]
+
+#[TagAttr(Tag::card)]
+#[TagAttr(Tag::card_set)]
+#[TagAttr(Tag::test)]
+#[TagAttr(Tag::task)]
 abstract class Controller
 {
     //

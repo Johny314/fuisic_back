@@ -1,0 +1,33 @@
+<?php
+
+namespace App\Http\Controllers\CardSet;
+
+use App\Enums\Uri;
+use App\Models\Card\CardSet;
+use App\OpenApi\Delete;
+use App\OpenApi\Parameter\ModelId;
+use App\OpenApi\Response\NotFound;
+use App\OpenApi\Response\Ok;
+use App\OpenApi\Response\Response;
+use App\OpenApi\Tag;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Routing\Controller;
+
+class Destroy extends Controller
+{
+    #[Delete(
+        path: Uri::card_set_id,
+        tag: Tag::card_set,
+        summary: 'Удалить набор карточек',
+    )]
+    #[ModelId('card_set', 'id набора карточек')]
+
+    #[Response(404, NotFound::class)]
+    #[Response(200, Ok::class)]
+    public function __invoke(CardSet $card_set): JsonResponse
+    {
+        $card_set->delete();
+
+        return new JsonResponse;
+    }
+}

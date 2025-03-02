@@ -3,12 +3,12 @@
 namespace App\Data\Card;
 
 use App\Data\Data;
+use App\Data\Section;
+use App\Data\User;
 use App\Enums\Classifications;
 use App\Enums\Difficulty;
 use App\Enums\Subject;
 use App\Models\Card\CardSet as Model;
-use App\Models\Section;
-use App\Models\User;
 use App\OpenApi\Property;
 use Illuminate\Http\Request;
 use OpenApi\Attributes\Schema;
