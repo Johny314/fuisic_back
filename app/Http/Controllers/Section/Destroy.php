@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Section;
 
 use App\Enums\Uri;
-use App\Models\Card\CardSet;
+use App\Models\Section;
 use App\OpenApi\Delete;
 use App\OpenApi\Parameter\ModelId;
 use App\OpenApi\Response\NotFound;
@@ -24,7 +24,7 @@ class Destroy extends Controller
 
     #[Response(404, NotFound::class)]
     #[Response(200, Ok::class)]
-    public function __invoke(CardSet $section): JsonResponse
+    public function __invoke(Section $section): JsonResponse
     {
         $section->delete();
 
