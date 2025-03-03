@@ -11,6 +11,9 @@ use OpenApi\Attributes\Schema;
 #[Schema(required: ['test_id', 'user_id', 'answer'])]
 class TestHistory extends Data
 {
+    #[Property(readOnly: true, example: '1')]
+    public ?int $id;
+
     #[Property(example: 1)]
     public ?int $test_id;
 

@@ -10,6 +10,9 @@ use OpenApi\Attributes\Schema;
 #[Schema(required: ['task_history_id', 'answer'])]
 class TaskHistory extends Data
 {
+    #[Property(readOnly: true, example: '1')]
+    public ?int $id;
+
     #[Property(example: 1)]
     public ?int $task_history_id;
 

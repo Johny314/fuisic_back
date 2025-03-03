@@ -9,6 +9,9 @@ use OpenApi\Attributes\Schema;
 #[Schema(required: ['name', 'email', 'user_type'])]
 class User extends Data
 {
+    #[Property(readOnly: true, example: '1')]
+    public ?int $id;
+
     #[Property(example: 'John Doe')]
     public string $name;
 
