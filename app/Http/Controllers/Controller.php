@@ -23,6 +23,8 @@ use OpenApi\Attributes as OA;
 #[TagAttr(Tag::card_set)]
 #[TagAttr(Tag::test)]
 #[TagAttr(Tag::task)]
+#[TagAttr(Tag::section)]
+#[TagAttr(Tag::user)]
 abstract class Controller
 {
     //

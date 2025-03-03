@@ -12,7 +12,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('subject');
-            $table->foreignId('section_id');
+            $table->foreignId('section_id')->constrained();
             $table->string('class')->nullable();
             $table->string('difficulty')->nullable();
             $table->foreignId('user_id')->constrained();

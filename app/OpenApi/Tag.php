@@ -12,6 +12,8 @@ enum Tag: string
     case test = 'test';
     case card_set = 'card_set';
     case task = 'task';
+    case section = 'section';
+    case user = 'user';
 
     public function label(): string
     {
@@ -20,6 +22,8 @@ enum Tag: string
             self::test => 'Тесты',
             self::card_set => 'Наборы карточек',
             self::task => 'Задачи',
+            self::section => 'Разделы',
+            self::user => 'Пользователи',
         };
     }
 }

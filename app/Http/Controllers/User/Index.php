@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\CardSet;
+namespace App\Http\Controllers\User;
 
-use App\Data\Card\CardSet as Data;
-use App\Models\Card\CardSet as CardSetModel;
+use App\Data\User as Data;
 use App\Enums\Uri;
+use App\Models\User;
 use App\OpenApi\Get;
 use App\OpenApi\Parameter\Filter;
 use App\OpenApi\Parameter\Page;
@@ -20,19 +20,19 @@ use Spatie\QueryBuilder\QueryBuilder;
 class Index extends Controller
 {
     #[Get(
-        path: Uri::card_set,
-        tag: Tag::card_set,
-        summary: 'Список наборов карточек, с пагинацией',
+        path: Uri::user,
+        tag: Tag::user,
+        summary: 'Список пользователей',
     )]
     #[Sort(['id', 'name'])]
-    #[Filter(name: 'name', example: 'Основы алгебры')]
+    #[Filter(name: 'name', example: 'Иван Иванов')]
     #[Page]
     #[PerPage]
 
-    #[IndexPaginatedResponse(Data::class, description: 'Список наборов карточек')]
+    #[IndexPaginatedResponse(User::class, description: 'Список пользователей')]
     public function __invoke(Request $request): PaginatedDataCollection
     {
-        $models = QueryBuilder::for(CardSetModel::query())
+        $models = QueryBuilder::for(User::query())
             ->allowedSorts(['id', 'name'])
             ->allowedFilters(['name'])
             ->orderByDesc('created_at')

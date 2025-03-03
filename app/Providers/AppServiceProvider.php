@@ -2,6 +2,9 @@
 
 namespace App\Providers;
 
+use App\Auth\JwtGuard;
+use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -19,6 +22,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        Auth::extend('jwt', fn () => new JwtGuard);
+        VerifyCsrfToken::except(['/*']);
     }
 }
