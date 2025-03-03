@@ -1,0 +1,30 @@
+<?php
+
+namespace App\Http\Controllers\User;
+
+use App\Data\User as Data;
+use App\Enums\Uri;
+use App\Models\User;
+use App\OpenApi\Get;
+use App\OpenApi\Parameter\ModelId;
+use App\OpenApi\Response\NotFound;
+use App\OpenApi\Response\Response;
+use App\OpenApi\Tag;
+use Illuminate\Routing\Controller;
+
+class Show extends Controller
+{
+    #[Get(
+        path: Uri::user_id,
+        tag: Tag::user,
+        summary: 'Вывести пользователя по его id',
+    )]
+    #[ModelId('user', 'id пользователя')]
+
+    #[Response(200, Data::class)]
+    #[Response(404, NotFound::class)]
+    public function __invoke(User $user): Data
+    {
+        return Data::from($user);
+    }
+}

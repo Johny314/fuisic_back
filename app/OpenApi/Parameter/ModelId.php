@@ -15,7 +15,7 @@ class ModelId extends OA\Parameter
             in: 'path',
             required: true,
             schema: new OA\Schema(type: 'string'),
-            example: 'nanoId78'
+            example: '1'
         );
     }
 }
