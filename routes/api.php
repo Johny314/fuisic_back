@@ -2,8 +2,11 @@
 
 use App\Enums\Uri;
 use App\Http\Controllers\CardSet;
+use App\Http\Controllers\Card;
 use App\Http\Controllers\Section;
 use App\Http\Controllers\User;
+use App\Http\Controllers\Task;
+use App\Http\Controllers\Test;
 use Illuminate\Support\Facades\Route;
 
 
@@ -24,4 +27,22 @@ Route::get(Uri::user->value, User\Index::class);
 Route::get(Uri::user_id->value, User\Show::class);
 Route::post(Uri::user->value, User\Store::class);
 Route::put( Uri::user_id->value, User\Update::class);
+
+Route::delete(Uri::card_id->value, Card\Destroy::class);
+Route::get(Uri::card->value, Card\Index::class);
+Route::get(Uri::card_id->value, Card\Show::class);
+Route::post(Uri::card->value, Card\Store::class);
+Route::put( Uri::card_id->value, Card\Update::class);
+
+Route::delete(Uri::task_id->value, Task\Destroy::class);
+Route::get(Uri::task->value, Task\Index::class);
+Route::get(Uri::task_id->value, Task\Show::class);
+Route::post(Uri::task->value, Task\Store::class);
+Route::put( Uri::task_id->value, Task\Update::class);
+
+Route::delete(Uri::test_id->value, Test\Destroy::class);
+Route::get(Uri::test->value, Test\Index::class);
+Route::get(Uri::test_id->value, Test\Show::class);
+Route::post(Uri::test->value, Test\Store::class);
+Route::put( Uri::test_id->value, Test\Update::class);
 

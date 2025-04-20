@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Auth\JwtGuard;
 use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
+use Illuminate\Http\Middleware\HandleCors;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\ServiceProvider;
 

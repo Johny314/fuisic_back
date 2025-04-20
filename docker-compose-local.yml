@@ -26,6 +26,22 @@ services:
             - pgsql
             - redis
 
+    react:
+        build:
+            context: ../fuisic_front
+            dockerfile: Dockerfile
+        ports:
+            - '19000:19000'
+            - '19001:19001'
+            - '19002:19002'
+        volumes:
+            - '../fuisic_front:/app'
+            - '/app/node_modules'
+        networks:
+            - app-network
+        depends_on:
+            - laravel
+
     pgsql:
         image: 'postgres:15'
         ports:
