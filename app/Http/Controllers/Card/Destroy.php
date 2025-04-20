@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\Section;
+namespace App\Http\Controllers\Card;
 
 use App\Enums\Uri;
-use App\Models\Section;
+use App\Models\Card\Card;
 use App\OpenApi\Delete;
 use App\OpenApi\Parameter\ModelId;
 use App\OpenApi\Response\NotFound;
@@ -16,17 +16,17 @@ use Illuminate\Routing\Controller;
 class Destroy extends Controller
 {
     #[Delete(
-        path: Uri::section_id,
-        tag: Tag::section,
-        summary: 'Удалить раздел',
+        path: Uri::card_id,
+        tag: Tag::card,
+        summary: 'Удалить карточку',
     )]
-    #[ModelId('section', 'id раздела')]
+    #[ModelId('card', 'id карточки')]
 
     #[Response(404, NotFound::class)]
     #[Response(200, Ok::class)]
-    public function __invoke(Section $section): JsonResponse
+    public function __invoke(Card $card): JsonResponse
     {
-        $section->delete();
+        $card->delete();
 
         return new JsonResponse;
     }
