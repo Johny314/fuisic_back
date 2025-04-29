@@ -15,6 +15,7 @@ use App\OpenApi\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Spatie\LaravelData\PaginatedDataCollection;
+use Spatie\QueryBuilder\AllowedFilter;
 use Spatie\QueryBuilder\QueryBuilder;
 
 class Index extends Controller
@@ -26,6 +27,7 @@ class Index extends Controller
     )]
     #[Sort(['id', 'name'])]
     #[Filter(name: 'name', example: 'Основы алгебры')]
+    #[Filter(name: 'section_id', example: 1)]
     #[Page]
     #[PerPage]
 
@@ -34,7 +36,10 @@ class Index extends Controller
     {
         $models = QueryBuilder::for(CardSetModel::query())
             ->allowedSorts(['id', 'name'])
-            ->allowedFilters(['name'])
+            ->allowedFilters([
+                'name',
+                AllowedFilter::exact('section_id'),
+            ])
             ->orderByDesc('created_at')
             ->paginate(
                 perPage: $request->per_page,

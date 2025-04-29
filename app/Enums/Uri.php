@@ -6,12 +6,14 @@ enum Uri: string
 {
     case card_set = 'card_set';
     case card_set_id = 'card_set/{card_set}';
+    case card_set_cards = 'card_set/{card_set}/cards';
 
     case card = 'card';
     case card_id = 'card/{card}';
 
     case test = 'test';
     case test_id = 'test/{test}';
+    case test_tasks = 'test/{test}/tasks';
 
     case task = 'task';
     case task_id = 'task/{task}';
@@ -21,4 +23,8 @@ enum Uri: string
 
     case user = 'user';
     case user_id = 'user/{user}';
+
+    case register = 'register';
+    case login = 'login';
+    case me = 'me';
 }
