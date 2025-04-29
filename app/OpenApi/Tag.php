@@ -14,6 +14,7 @@ enum Tag: string
     case task = 'task';
     case section = 'section';
     case user = 'user';
+    case auth = 'auth';
 
     public function label(): string
     {
@@ -24,6 +25,7 @@ enum Tag: string
             self::task => 'Задачи',
             self::section => 'Разделы',
             self::user => 'Пользователи',
+            self::auth => 'Авторизация',
         };
     }
 }
