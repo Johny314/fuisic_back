@@ -34,7 +34,7 @@ class Test extends Data
     #[Property(example: Difficulty::easy->value)]
     public ?string $difficulty;
 
-    #[Property(writeOnly: true, example: '1')]
+    #[Property(readOnly: true, example: '1')]
     public ?string $user_id;
 
     #[Property(schema: Section::class, readOnly: true)]
@@ -45,7 +45,10 @@ class Test extends Data
 
     public static function fromRequest(Request $request): Test
     {
-        return static::from($request->toArray());
+        return static::from([
+                'user_id' => auth()->user()->id,
+            ] + $request->toArray()
+        );
     }
 
     public static function fromModel(Model $model): Test

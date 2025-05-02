@@ -15,6 +15,8 @@ enum Uri: string
     case test_id = 'test/{test}';
     case test_tasks = 'test/{test}/tasks';
 
+    case check_answers = 'test/{test}/answers';
+
     case task = 'task';
     case task_id = 'task/{task}';
 
