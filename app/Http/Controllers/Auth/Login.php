@@ -11,6 +11,7 @@ use App\OpenApi\Response\Response;
 use App\OpenApi\Tag;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\ValidationException;
 
 class Login extends Controller
@@ -36,6 +37,8 @@ class Login extends Controller
         $user = Auth::user();
         $token = $user->createToken('api-token')->plainTextToken;
 
-        return Token::from($token);
+        return Token::from([
+            'token' => $token
+        ]);
     }
 }

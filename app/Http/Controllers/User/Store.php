@@ -4,7 +4,7 @@ namespace App\Http\Controllers\User;
 
 use App\Data\User as Data;
 use App\Enums\Uri;
-use App\Models\Section;
+use App\Models\User;
 use App\OpenApi\Post;
 use App\OpenApi\Request\RequestBody;
 use App\OpenApi\Response\Response;
@@ -23,7 +23,7 @@ class Store extends Controller
     #[Response(201, Data::class)]
     public function __invoke(Data $data): Data
     {
-        $user = Section::query()->create($data->toArray());
+        $user = User::query()->create($data->toArray());
 
         return Data::from($user);
     }
