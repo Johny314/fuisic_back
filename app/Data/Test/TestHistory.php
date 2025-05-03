@@ -3,7 +3,7 @@
 namespace App\Data\Test;
 
 use App\Data\Data;
-use App\Data\User;
+use App\Data\User\User;
 use App\Models\Test\TestHistory as Model;
 use App\OpenApi\Property;
 use OpenApi\Attributes\Schema;

@@ -3,7 +3,7 @@
 namespace App\Data\Card;
 
 use App\Data\Data;
-use App\Data\User;
+use App\Data\User\User;
 use App\Models\Card\CardSetHistory as Model;
 use App\OpenApi\Property;
 use Illuminate\Http\Request;

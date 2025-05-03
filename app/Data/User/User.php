@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Data;
+namespace App\Data\User;
 
+use App\Data\Data;
 use App\Enums\UserType;
 use App\OpenApi\Property;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
 use OpenApi\Attributes\Schema;
 
 #[Schema(required: ['name', 'email', 'user_type'])]
@@ -32,7 +32,6 @@ class User extends Data
     public static function fromRequest(Request $request): User
     {
         return static::from([
-                'password' => Hash::make($request->password),
                 'user_type' => UserType::student->value,
             ] + $request->toArray()
         );
