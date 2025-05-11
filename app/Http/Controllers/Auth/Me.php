@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Data\User as UserData;
+use App\Data\User\User as UserData;
 use App\Enums\Uri;
 use App\OpenApi\Get;
 use App\OpenApi\Response\Response;

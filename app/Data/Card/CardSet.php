@@ -4,7 +4,7 @@ namespace App\Data\Card;
 
 use App\Data\Data;
 use App\Data\Section;
-use App\Data\User;
+use App\Data\User\User;
 use App\Enums\Classifications;
 use App\Enums\Difficulty;
 use App\Enums\Subject;

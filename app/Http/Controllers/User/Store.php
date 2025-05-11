@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\User;
 
-use App\Data\User as Data;
+use App\Data\User\User as Data;
 use App\Enums\Uri;
 use App\Models\User;
 use App\OpenApi\Post;
