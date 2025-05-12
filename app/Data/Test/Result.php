@@ -10,7 +10,7 @@ use OpenApi\Attributes\Schema;
 class Result extends Data
 {
     #[Property(example: '1')]
-    public Task $task;
+    public ShortTask $task;
 
     #[Property(example: '1')]
     public ?string $answer;

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Test;
 
-use App\Data\Test\Task as Data;
+use App\Data\Test\ShortTask as Data;
 use App\Enums\Uri;
 use App\Models\Test\Test;
 use App\OpenApi\Get;

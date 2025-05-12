@@ -6,6 +6,7 @@ use App\Data\Test\Answers;
 use App\Data\Test\Result;
 use App\Data\Test\Results;
 use App\Enums\Uri;
+use App\Models\Test\Task;
 use App\Models\Test\Test;
 use App\OpenApi\Parameter\ModelId;
 use App\OpenApi\Post;
@@ -38,7 +39,7 @@ class CheckAnswers extends Controller
             $isCorrect = $task && $task->answer === $answer['answer'];
 
             $results[] = Result::from([
-                'task_id' => $answer['task_id'],
+                'task' => Task::query()->find($answer['task_id']),
                 'answer' => $answer['answer'],
                 'correct_answer' => $task?->answer,
                 'is_correct' => $isCorrect,

@@ -15,6 +15,7 @@ use App\OpenApi\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Spatie\LaravelData\PaginatedDataCollection;
+use Spatie\QueryBuilder\AllowedFilter;
 use Spatie\QueryBuilder\QueryBuilder;
 
 class Index extends Controller
@@ -26,6 +27,7 @@ class Index extends Controller
     )]
     #[Sort(['id', 'creator_id', 'name'])]
     #[Filter(name: 'name', example: 'Тест по арифметике')]
+    #[Filter(name: 'section_id', example: 1)]
     #[Filter(name: 'creator_id', example: 1)]
     #[Page]
     #[PerPage]
@@ -35,7 +37,11 @@ class Index extends Controller
     {
         $models = QueryBuilder::for(TestModel::query())
             ->allowedSorts(['id', 'creator_id', 'name'])
-            ->allowedFilters(['creator_id', 'name'])
+            ->allowedFilters([
+                'creator_id',
+                'name',
+                AllowedFilter::exact('section_id'),
+            ])
             ->orderByDesc('created_at')
             ->paginate(
                 perPage: $request->per_page,

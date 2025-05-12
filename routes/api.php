@@ -60,3 +60,5 @@ Route::get(Uri::task_id->value, Task\Show::class);
 
 Route::get(Uri::test->value, Test\Index::class);
 Route::get(Uri::test_id->value, Test\Show::class);
+Route::get(Uri::test_tasks->value, Test\ShowTasks::class);
+Route::post(Uri::check_answers->value, Test\CheckAnswers::class);
