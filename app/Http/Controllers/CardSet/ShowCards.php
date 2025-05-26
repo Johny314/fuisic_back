@@ -26,6 +26,10 @@ class ShowCards extends Controller
     #[Response(404, NotFound::class)]
     public function __invoke(CardSet $card_set): Collection
     {
-        return Data::collect($card_set->cards()->get());
+        return Data::collect(
+            $card_set->cards()
+                ->inRandomOrder()
+                ->get()
+        );
     }
 }

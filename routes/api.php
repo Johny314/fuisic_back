@@ -45,6 +45,7 @@ Route::post(Uri::login->value, Auth\Login::class);
 
 Route::get(Uri::card_set->value, CardSet\Index::class);
 Route::get(Uri::card_set_id->value, CardSet\Show::class);
+Route::get(Uri::card_set_cards->value, CardSet\ShowCards::class);
 
 Route::get(Uri::section->value, Section\Index::class);
 Route::get(Uri::section_id->value, Section\Show::class);

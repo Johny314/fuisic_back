@@ -25,19 +25,4 @@ class Card extends Data
 
     #[Property(example: 'Math addition problem')]
     public ?string $description;
-
-    #[Property(schema: CardSet::class, readOnly: true)]
-    public ?CardSet $cardSet;
-
-    public static function fromRequest(Request $request): Card
-    {
-        return static::from($request->toArray());
-    }
-
-    public static function fromModel(Model $model): Card
-    {
-        return static::from([
-                'cardSet' => CardSet::from($model->cardSet),
-            ] + $model->toArray());
-    }
 }
