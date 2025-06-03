@@ -4,6 +4,7 @@ namespace App\Models\Test;
 
 use App\Models\Section;
 use App\Models\User;
+use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -13,6 +14,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Test extends Model
 {
     use HasFactory, SoftDeletes;
+    use CrudTrait;
 
     protected $fillable = [
         'name',

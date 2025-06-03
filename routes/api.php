@@ -8,6 +8,7 @@ use App\Http\Controllers\Section;
 use App\Http\Controllers\User;
 use App\Http\Controllers\Task;
 use App\Http\Controllers\Test;
+use App\Http\Controllers\Filters;
 use Illuminate\Support\Facades\Route;
 
 
@@ -62,3 +63,6 @@ Route::get(Uri::test->value, Test\Index::class);
 Route::get(Uri::test_id->value, Test\Show::class);
 Route::get(Uri::test_tasks->value, Test\ShowTasks::class);
 Route::post(Uri::check_answers->value, Test\CheckAnswers::class);
+
+Route::get(Uri::classification->value, Filters\Classifications::class);
+Route::get(Uri::difficulty->value, Filters\Difficulties::class);

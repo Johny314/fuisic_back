@@ -27,7 +27,10 @@ class Index extends Controller
     )]
     #[Sort(['id', 'name'])]
     #[Filter(name: 'name', example: 'Основы алгебры')]
+    #[Filter(name: 'subject', example: 'Математика')]
     #[Filter(name: 'section_id', example: 1)]
+    #[Filter(name: 'class', example: '10')]
+    #[Filter(name: 'difficulty', example: 'hard')]
     #[Page]
     #[PerPage]
 
@@ -39,6 +42,9 @@ class Index extends Controller
             ->allowedFilters([
                 'name',
                 AllowedFilter::exact('section_id'),
+                AllowedFilter::exact('subject'),
+                AllowedFilter::exact('class'),
+                AllowedFilter::exact('difficulty'),
             ])
             ->orderByDesc('created_at')
             ->paginate(

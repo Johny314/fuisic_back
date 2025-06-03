@@ -15,6 +15,7 @@ enum Tag: string
     case section = 'section';
     case user = 'user';
     case auth = 'auth';
+    case filters = 'filters';
 
     public function label(): string
     {
@@ -26,6 +27,7 @@ enum Tag: string
             self::section => 'Разделы',
             self::user => 'Пользователи',
             self::auth => 'Авторизация',
+            self::filters => 'Доступные фильтры',
         };
     }
 }

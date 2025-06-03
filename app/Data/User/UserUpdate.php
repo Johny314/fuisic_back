@@ -18,5 +18,5 @@ class UserUpdate extends Data
     public string $email;
 
     #[Property(example: 'password')]
-    public string $password;
+    public ?string $password;
 }

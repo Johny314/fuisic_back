@@ -4,7 +4,7 @@ namespace App\Enums;
 
 enum Difficulty: string
 {
-    case easy = 'easy';
-    case medium = 'medium';
-    case hard = 'hard';
+    case easy = 'Легкая';
+    case medium = 'Средняя';
+    case hard = 'Сложная';
 }

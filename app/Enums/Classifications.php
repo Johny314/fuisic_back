@@ -4,7 +4,7 @@ namespace App\Enums;
 
 enum Classifications: string
 {
-    case first = 'first';
-    case second = 'second';
-    case third = 'third';
+    case first = '1-4';
+    case second = '5-9';
+    case third = '10-11';
 }

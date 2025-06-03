@@ -29,4 +29,7 @@ enum Uri: string
     case register = 'register';
     case login = 'login';
     case me = 'me';
+
+    case classification = 'filters/classification';
+    case difficulty = 'filters/difficulty';
 }

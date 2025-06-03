@@ -10,6 +10,7 @@ use App\OpenApi\Post;
 use App\OpenApi\Request\RequestBody;
 use App\OpenApi\Response\Response;
 use App\OpenApi\Tag;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -24,22 +25,15 @@ class Login extends Controller
     )]
     #[RequestBody(Data::class)]
     #[Response(200, Token::class)]
-    public function __invoke(Data $data): Token
+    public function __invoke(Data $data): Token|JsonResponse
     {
-        $userP = User::query()->where('email', $data->email)->first()->password;
-        $dataP = Hash::make($data->password);
-        logger('БД');
-        logger($userP);
-        logger('ЗАПРОС');
-        logger($dataP);
-
         if (!Auth::attempt([
             'email' => $data->email,
             'password' => $data->password,
         ])) {
-            throw ValidationException::withMessages([
-                'email' => ['Неверный email или пароль.'],
-            ]);
+            return response()->json([
+                'message' => 'Неверный email или пароль',
+            ], 401);
         }
 
 

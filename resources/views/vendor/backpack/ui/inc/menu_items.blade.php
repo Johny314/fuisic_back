@@ -3,3 +3,5 @@
 
 <x-backpack::menu-item title="Пользователи" icon="la la-user" :link="backpack_url('user')" />
 <x-backpack::menu-item title="Разделы" icon="la la-folder" :link="backpack_url('section')" />
+<x-backpack::menu-item title="Наборы карточек" icon="la la-clone" :link="backpack_url('card-set')" />
+<x-backpack::menu-item title="Тесты" icon="la la-tasks" :link="backpack_url('test')" />
