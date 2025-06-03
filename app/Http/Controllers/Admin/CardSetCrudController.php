@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Requests\SectionRequest;
-use App\Models\Section;
+use App\Http\Requests\CardSetRequest;
+use App\Models\Card\CardSet;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation;
 use Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
@@ -14,11 +14,11 @@ use Backpack\CRUD\app\Library\CrudPanel\CrudPanel;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 
 /**
- * Class SectionCrudController
+ * Class CardSetCrudController
  * @package App\Http\Controllers\Admin
  * @property-read CrudPanel $crud
  */
-class SectionCrudController extends CrudController
+class CardSetCrudController extends CrudController
 {
     use ListOperation;
     use CreateOperation;
@@ -33,9 +33,9 @@ class SectionCrudController extends CrudController
      */
     public function setup()
     {
-        CRUD::setModel(Section::class);
-        CRUD::setRoute(config('backpack.base.route_prefix') . '/section');
-        CRUD::setEntityNameStrings('Раздел', 'Разделы');
+        CRUD::setModel(CardSet::class);
+        CRUD::setRoute(config('backpack.base.route_prefix') . '/card-set');
+        CRUD::setEntityNameStrings('Набор карточек', 'Наборы карточек');
     }
 
     /**
@@ -46,7 +46,8 @@ class SectionCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-        CRUD::column('name')->label('Название');
+        CRUD::setFromDb(); // set columns from db columns.
+
         /**
          * Columns can be defined using the fluent syntax:
          * - CRUD::column('price')->type('number');
@@ -61,8 +62,8 @@ class SectionCrudController extends CrudController
      */
     protected function setupCreateOperation()
     {
-        CRUD::setValidation(SectionRequest::class);
-        CRUD::field('name')->label('Название')->type('text');
+        CRUD::setValidation(CardSetRequest::class);
+        CRUD::setFromDb(); // set fields from db columns.
 
         /**
          * Fields can be defined using the fluent syntax:
