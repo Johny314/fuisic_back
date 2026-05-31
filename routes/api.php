@@ -1,7 +1,6 @@
 <?php
 
 use App\Enums\Uri;
-use App\Http\Controllers\Auth;
 use App\Http\Controllers\CardSet;
 use App\Http\Controllers\Card;
 use App\Http\Controllers\Section;
@@ -13,8 +12,6 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::middleware('auth:sanctum')->group(function () {
-    Route::get(Uri::me->value, Auth\Me::class);
-
     Route::post(Uri::card_set->value, CardSet\Store::class);
     Route::put( Uri::card_set_id->value, CardSet\Update::class);
     Route::delete(Uri::card_set_id->value, CardSet\Destroy::class);
@@ -40,9 +37,6 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::delete(Uri::test_id->value, Test\Destroy::class);
     Route::post(Uri::check_answers->value, Test\CheckAnswers::class);
 });
-
-Route::post(Uri::register->value, Auth\Register::class);
-Route::post(Uri::login->value, Auth\Login::class);
 
 Route::get(Uri::card_set->value, CardSet\Index::class);
 Route::get(Uri::card_set_id->value, CardSet\Show::class);
