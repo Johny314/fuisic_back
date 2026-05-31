@@ -2,7 +2,7 @@ USER_ID ?= $(shell id -u)
 GROUP_ID ?= $(shell id -g)
 COMPOSE = docker compose
 
-setup-local: env-prepare storage-setup composer-install link-docker-compose-file up app-key-generate package-discover db-setup
+setup-local: env-prepare storage-setup composer-install link-docker-compose-file up app-key-generate package-discover db-setup swagger-generate
 
 start: up
 stop: down
@@ -48,6 +48,9 @@ package-discover:
 
 db-setup:
 	$(COMPOSE) exec app php artisan migrate --seed
+
+swagger-generate:
+	$(COMPOSE) exec app php artisan l5-swagger:generate
 
 db-setup-test:
 	$(COMPOSE) exec app php artisan migrate --env=testing

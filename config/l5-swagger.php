@@ -9,7 +9,7 @@ return [
             ],
 
             'routes' => [
-                'api' => 'api/docs',
+                'api' => 'api/documentation',
             ],
             'paths' => [
                 'use_absolute_path' => env('L5_SWAGGER_USE_ABSOLUTE_PATH', true),
