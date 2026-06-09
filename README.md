@@ -106,7 +106,7 @@ database/seeders/   # User, Section, PhysicsContent
 routes/api.php      # доменные маршруты (auth — в пакете)
 ```
 
-Полное дерево: `../PROJECT_TREE.md`
+Полное дерево: [fuisic-workspace/PROJECT_TREE.md](https://github.com/Johny314/fuisic-workspace/blob/main/PROJECT_TREE.md) (локально: `../PROJECT_TREE.md`)
 
 ## Авторизация
 
