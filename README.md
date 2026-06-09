@@ -2,6 +2,8 @@
 
 API-бэкенд платформы FUISIC на Laravel 11: карточки, тесты, задания и авторизация через пакет [fuisic/laravel-auth](https://github.com/Johny314/fuisic-laravel-auth).
 
+**Версия:** `v2.1.0`
+
 ## Стек
 
 - PHP 8.3, Laravel 11
@@ -39,6 +41,22 @@ make setup-local
 5. Сборку и запуск контейнеров
 6. `php artisan key:generate`
 7. Миграции и сиды
+
+Пересоздать БД с демо-данными:
+
+```bash
+make artisan migrate:fresh --seed
+```
+
+### Демо-аккаунты (после seed)
+
+| Роль | Email | Пароль |
+|------|-------|--------|
+| admin | `admin@fuisic.local` | `password` |
+| teacher | `teacher@fuisic.local` | `password` |
+| student | `ivan@student.ru` | `password` |
+
+Сидеры: `UserSeeder`, `SectionSeeder` (8 разделов физики), `PhysicsContentSeeder` (карточки и тесты).
 
 ### Ежедневная работа
 
@@ -81,11 +99,14 @@ make artisan queue:work rabbitmq --queue=auth.notifications,default
 ## Структура проекта
 
 ```
-app/                 # Доменная логика FUISIC
-config/fuisic-auth.php   # Переопределения auth-пакета
-docker/              # Dockerfile, nginx
-routes/api.php       # Доменные маршруты (auth — в пакете)
+app/Http/Controllers/{Domain}/{Action}.php   # invokable контроллеры
+app/Models/, app/Data/, app/Enums/
+config/fuisic-auth.php, config/cors.php
+database/seeders/   # User, Section, PhysicsContent
+routes/api.php      # доменные маршруты (auth — в пакете)
 ```
+
+Полное дерево: `../PROJECT_TREE.md`
 
 ## Авторизация
 
