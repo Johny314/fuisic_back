@@ -2,6 +2,9 @@
 
 namespace Database\Factories;
 
+use App\Enums\Classifications;
+use App\Enums\Difficulty;
+use App\Enums\Subject;
 use App\Models\Card\CardSet;
 use App\Models\Section;
 use App\Models\User;
@@ -14,10 +17,19 @@ class CardSetFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => $this->faker->word(),
+            'name' => $this->faker->sentence(3),
+            'subject' => Subject::physics->value,
             'section_id' => Section::factory(),
-            'class' => $this->faker->optional()->word(),
-            'difficulty' => $this->faker->randomElement(['easy', 'medium', 'hard']),
+            'class' => $this->faker->randomElement([
+                Classifications::first->value,
+                Classifications::second->value,
+                Classifications::third->value,
+            ]),
+            'difficulty' => $this->faker->randomElement([
+                Difficulty::easy->value,
+                Difficulty::medium->value,
+                Difficulty::hard->value,
+            ]),
             'user_id' => User::factory(),
         ];
     }
